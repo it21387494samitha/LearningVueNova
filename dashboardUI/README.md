@@ -16,18 +16,18 @@ This is the learning step of VUE.js with chart.js
 
 Vue basics + setup ✅
 
-Data binding: interpolation, v-bind, v-model 
+Data binding: interpolation, v-bind, v-model  ✅
 
-Conditional rendering: v-if, v-show 
+Conditional rendering: v-if, v-show        ✅
 
-Looping: v-for 
+Looping: v-for        ✅
 
-Lifecycle: mounted 
+Lifecycle: mounted      ✅
 
-Axios GET: fetch data and update UI 
+Axios GET: fetch data and update UI       ✅
 
-Components + props 
+Components + props           ✅
 
-Modules: import/export 
+Modules: import/export         ✅
 
-Chart.js integration 
+Chart.js integration        ✅
