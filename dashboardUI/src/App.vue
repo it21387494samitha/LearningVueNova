@@ -10,6 +10,7 @@
       {{ loading ? "Loading..." : "Reload Users" }}
     </button>
 
+    <button @click="note = 'Hello from Vue!'">Set Note</button>
     <!-- v-if -->
     <p v-if="error" class="error">Error: {{ error }}</p>
 
@@ -23,9 +24,15 @@
     />
 
     <div v-if="users.length" class="grid">
+
+
       <UserList :users="users" :selectedUserId="selectedUserId" />
       <UserChart :users="users" />
+       <UserByCompanyChart :users="users" />
+        <UsersByCompanyChart :users="users" />
+        <NewTestChart :users="users"/>
     </div>
+
 
     <p v-else class="hint">No users loaded yet.</p>
 
@@ -38,9 +45,12 @@ import { fetchUsers } from "./api/userApi.js";
 import UserForm from "./components/UserForm.vue";
 import UserList from "./components/UserList.vue";
 import UserChart from "./components/UserChart.vue";
+import UserByCompanyChart from "./components/UsersByCompanyChart.vue";
+import UsersByCompanyChart from "./components/CompanyUser.vue";
+import NewTestChart from "./components/NewTest.vue";
 
 export default {
-  components: { UserForm, UserList, UserChart },
+  components: { UserForm, UserList, UserChart, UserByCompanyChart, UsersByCompanyChart, NewTestChart },
   data() {
     return {
       users: [],
@@ -57,7 +67,7 @@ export default {
     },
   },
   async mounted() {
-    // lifecycle hook
+  
     await this.loadUsers();
   },
   methods: {
@@ -65,7 +75,7 @@ export default {
       this.loading = true;
       this.error = "";
       try {
-        // axios GET + update component state
+       
         this.users = await fetchUsers();
       } catch (e) {
         this.error = e?.message || "Failed to fetch users";
