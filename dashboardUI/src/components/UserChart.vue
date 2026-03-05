@@ -1,7 +1,11 @@
 <template>
-  <div class="card">
-    <h2>Chart.js in Vue</h2>
-    <canvas ref="canvas"></canvas>
+  <div class="card chart-card">
+    <div class="chart-header">
+      <h2>📊 Name Length Chart</h2>
+    </div>
+    <div class="chart-body">
+      <canvas ref="canvas"></canvas>
+    </div>
   </div>
 </template>
 
@@ -50,6 +54,19 @@ export default {
 </script>
 
 <style scoped>
-.card { border: 1px solid #ddd; border-radius: 10px; padding: 14px; }
+.chart-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.chart-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+}
+.chart-header h2 { margin: 0; font-size: 1rem; }
+.chart-body { padding: 20px 24px; }
 canvas { width: 100%; max-height: 360px; }
 </style>

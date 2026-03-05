@@ -1,11 +1,12 @@
 <template>
-  <div class="card">
-    <div class="row">
-      <h2>Chart.js Bar Chart (Vue)</h2>
-      <button @click="randomize">Randomize</button>
+  <div class="card chart-card">
+    <div class="chart-header">
+      <h2>📈 Bar Chart (Rounded)</h2>
+      <button class="header-action" @click="randomize">↻ Randomize</button>
     </div>
-
-    <canvas ref="chartCanvas"></canvas>
+    <div class="chart-body">
+      <canvas ref="chartCanvas"></canvas>
+    </div>
   </div>
 </template>
 
@@ -119,23 +120,26 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 14px;
+.chart-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
 }
-.row {
+.chart-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
 }
-button {
-  padding: 6px 10px;
+.chart-header h2 { margin: 0; font-size: 1rem; }
+.header-action {
+  font-size: 0.8rem;
+  padding: 6px 12px;
 }
-canvas {
-  width: 100%;
-  max-height: 360px;
-  margin-top: 10px;
-}
+.chart-body { padding: 20px 24px; }
+canvas { width: 100%; max-height: 360px; }
 </style>

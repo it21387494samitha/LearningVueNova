@@ -1,15 +1,18 @@
 <template>
-  <div class="card">
-    <h2>Company Share (Pie %)</h2>
-
-    <div class="actions">
-      <button @click="randomize">Randomize</button>
-      <button @click="addData">Add Data</button>
-      <button @click="removeData">Remove Data</button>
-      <button @click="resetToApi">Reset to API</button>
+  <div class="card chart-card">
+    <div class="chart-header">
+      <h2>🧩 Company Share (Pie %)</h2>
+      <div class="chart-actions">
+        <button @click="randomize">Randomize</button>
+        <button @click="addData">+ Add</button>
+        <button @click="removeData">− Remove</button>
+        <button class="btn-primary" @click="resetToApi">↻ Reset</button>
+      </div>
     </div>
 
-    <canvas ref="chartCanvas"></canvas>
+    <div class="chart-body">
+      <canvas ref="chartCanvas"></canvas>
+    </div>
   </div>
 </template>
 
@@ -182,23 +185,41 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 14px;
+.chart-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
 }
-.actions {
+.chart-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.chart-header h2 { margin: 0; font-size: 1rem; }
+.chart-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 10px 0;
+  gap: 6px;
 }
-button {
-  padding: 6px 10px;
-  cursor: pointer;
+.chart-actions button {
+  font-size: 0.78rem;
+  padding: 5px 10px;
+}
+.chart-body {
+  padding: 20px 24px;
+  display: flex;
+  justify-content: center;
 }
 canvas {
   width: 100%;
-  max-height: 360px;
+  max-width: 480px;
+  max-height: 400px;
 }
 </style>

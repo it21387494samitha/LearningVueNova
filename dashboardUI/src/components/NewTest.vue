@@ -1,10 +1,12 @@
 <template>
-  <div class="card">
-      <h2>Line Styling</h2>
-      
+  <div class="card chart-card">
+    <div class="chart-header">
+      <h2>📉 Line Styling</h2>
     </div>
-
-    <canvas ref="chartCanvas"></canvas>
+    <div class="chart-body">
+      <canvas ref="chartCanvas"></canvas>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -148,23 +150,19 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 14px;
+.chart-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
 }
-/* .row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-} */
-button {
-  padding: 6px 10px;
+.chart-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
 }
-canvas {
-  width: 100%;
-  max-height: 360px;
-  margin-top: 10px;
-}
+.chart-header h2 { margin: 0; font-size: 1rem; }
+.chart-body { padding: 20px 24px; }
+canvas { width: 100%; max-height: 360px; }
 </style>
